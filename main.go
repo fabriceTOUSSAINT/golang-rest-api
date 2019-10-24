@@ -63,6 +63,7 @@ func updateBook(w http.ResponseWriter, r *http.Request) {
 	for index, item := range books {
 		if item.ID == params["id"] {
 			books = append(books[:index], books[index+1:]...)
+
 			var book Book
 			_ = json.NewDecoder(r.Body).Decode(&book)
 			book.ID = params["id"]
